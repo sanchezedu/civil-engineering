@@ -1,0 +1,6 @@
+# Robots.txt
+User-agent: *
+Allow: /
+Disallow: /node_modules/
+
+Sitemap: https://civil-engineering-gray.vercel.app/sitemap.xml
