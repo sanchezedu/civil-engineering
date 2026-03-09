@@ -3,327 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ingeniería Civil de Excelencia. Proyectos de infraestructura, construcción y diseño. Experiencia y professionalism.">
-    <meta name="keywords" content="ingeniería civil, construcción, infraestructura, proyectos, Guayaquil">
-    <title>ingeniería Civil - Proyectos de Excelencia</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Oxanium:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <meta name="description" content="Ingeniería Civil">
+    <title>Ingeniería Civil - Proyectos de Excelencia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Oxanium:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
     <style>
-        :root {
-            --primary: #f97316;
-            --primary-dark: #ea580c;
-            --secondary: #1e293b;
-            --accent: #fbbf24;
-            --dark: #0f172a;
-            --light: #f1f5f9;
-            --gray: #64748b;
-            --glass: rgba(255,255,255,0.05);
-        }
+        :root { --primary: #f97316; --primary-dark: #ea580c; --secondary: #1e293b; --dark: #0f172a; --light: #f1f5f9; --gray: #64748b; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Archivo', sans-serif;
-            background: var(--dark);
-            color: var(--light);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
+        body { font-family: 'Archivo', sans-serif; background: var(--dark); color: var(--light); line-height: 1.7; overflow-x: hidden; }
         h1, h2, h3 { font-family: 'Oxanium', sans-serif; font-weight: 700; }
-        
         .c { max-width: 1400px; margin: 0 auto; padding: 0 30px; }
-        .sec { padding: 120px 0; }
+        .sec { padding: 100px 0; }
         
-        /* Orange gradient text */
-        .orange-text {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 32px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border-radius: 4px; cursor: pointer; transition: all 0.3s; border: none; text-decoration: none; }
+        .btn-primary { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; box-shadow: 0 10px 30px rgba(249,115,22,0.3); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 20px 50px rgba(249,115,22,0.5); }
         
-        /* Button */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 16px 36px;
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s;
-            border: none;
-            text-decoration: none;
-        }
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            box-shadow: 0 10px 40px rgba(249,115,22,0.3);
-        }
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 60px rgba(249,115,22,0.5);
-        }
+        .orange-text { background: linear-gradient(135deg, #f97316, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         
-        /* Grid pattern */
-        .grid-bg {
-            background-image: 
-                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-        }
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 18px 0; transition: all 0.3s; }
+        .header.scrolled { background: rgba(15,23,42,0.98); backdrop-filter: blur(20px); padding: 10px 0; }
+        .logo { font-family: 'Oxanium', sans-serif; font-size: 24px; font-weight: 800; color: var(--light); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .logo-icon { width: 40px; height: 40px; background: linear-gradient(135deg, var(--primary), #fbbf24); border-radius: 4px; display: flex; align-items: center; justify-content: center; }
         
-        /* Header */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 20px 0;
-            transition: all 0.3s;
-        }
-        .header.scrolled {
-            background: rgba(15,23,42,0.98);
-            backdrop-filter: blur(20px);
-            padding: 12px 0;
-        }
-        .logo {
-            font-family: 'Oxanium', sans-serif;
-            font-size: 26px;
-            font-weight: 800;
-            color: var(--light);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .logo-icon {
-            width: 42px;
-            height: 42px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-        }
-        
-        /* Hero */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            background: var(--dark);
-            overflow: hidden;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(249,115,22,0.15) 0%, transparent 40%),
-                radial-gradient(circle at 80% 20%, rgba(251,191,36,0.1) 0%, transparent 40%);
-        }
+        .hero { min-height: 100vh; display: flex; align-items: center; background: var(--dark); position: relative; }
+        .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 20% 80%, rgba(249,115,22,0.15) 0%, transparent 40%), radial-gradient(circle at 80% 20%, rgba(251,191,36,0.1) 0%, transparent 40%); }
         .hero-content { position: relative; z-index: 2; max-width: 500px; }
-        .hero-image { position: absolute; right: 5%; top: 50%; transform: translateY(-50%); width: 45%; max-width: 500px; z-index: 2; }
-        @media(max-width: 992px) { .hero-image { display: none; } }
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(249,115,22,0.15);
-            border: 1px solid rgba(249,115,22,0.3);
-            padding: 10px 20px;
-            border-radius: 4px;
-            color: var(--primary);
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            margin-bottom: 25px;
-        }
-        .hero h1 {
-            font-size: clamp(40px, 7vw, 72px);
-            line-height: 1.1;
-            margin-bottom: 25px;
-        }
-        .hero p {
-            font-size: 18px;
-            color: var(--gray);
-            margin-bottom: 40px;
-            max-width: 550px;
-        }
+        .hero-badge { display: inline-flex; align-items: center; gap: 10px; background: rgba(249,115,22,0.15); border: 1px solid rgba(249,115,22,0.3); padding: 10px 18px; border-radius: 4px; color: var(--primary); font-size: 12px; font-weight: 600; margin-bottom: 20px; }
+        .hero h1 { font-size: clamp(36px, 7vw, 65px); line-height: 1.1; margin-bottom: 18px; }
+        .hero p { font-size: 17px; color: var(--gray); margin-bottom: 30px; }
+        .hero-image { position: absolute; right: 5%; top: 50%; transform: translateY(-50%); width: 45%; max-width: 450px; z-index: 2; }
         
-        /* Stats */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            padding: 40px;
-            background: var(--glass);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 8px;
-        }
-        .stat-item { text-align: center; }
-        .stat-number {
-            font-family: 'Oxanium', sans-serif;
-            font-size: 48px;
-            font-weight: 800;
-            color: var(--primary);
-            line-height: 1;
-        }
-        .stat-label {
-            font-size: 13px;
-            color: var(--gray);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 8px;
-        }
+        .grid-bg { background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 50px 50px; }
         
-        /* Projects */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
-        .project-card {
-            background: var(--glass);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: all 0.4s;
-        }
-        .project-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--primary);
-        }
-        .project-image {
-            height: 220px;
-            background: linear-gradient(135deg, #334155, #1e293b);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 50px;
-        }
-        .project-content { padding: 30px; }
-        .project-category {
-            font-size: 12px;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-        .project-card h3 {
-            font-size: 22px;
-            margin-bottom: 12px;
-        }
-        .project-card p {
-            color: var(--gray);
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
-        .project-link {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .project-link:hover { gap: 15px; }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 30px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; margin-top: 40px; }
+        .stat-number { font-family: 'Oxanium', sans-serif; font-size: 36px; font-weight: 800; color: var(--primary); line-height: 1; }
+        .stat-label { font-size: 12px; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
         
-        /* Services */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-        .service-card {
-            padding: 35px;
-            background: var(--glass);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 8px;
-            transition: all 0.3s;
-        }
-        .service-card:hover {
-            background: linear-gradient(135deg, rgba(249,115,22,0.1), transparent);
-            border-color: rgba(249,115,22,0.3);
-        }
-        .service-icon {
-            width: 55px;
-            height: 55px;
-            background: linear-gradient(135deg, var(--primary), transparent);
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            color: var(--primary);
-            margin-bottom: 25px;
-        }
-        .service-card h3 { font-size: 20px; margin-bottom: 12px; }
-        .service-card p { color: var(--gray); font-size: 14px; }
+        .section-title { font-size: clamp(28px, 5vw, 42px); margin-bottom: 12px; }
         
-        /* CTA */
-        .cta-section {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-        }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .project-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden; transition: all 0.4s; }
+        .project-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+        .project-image { height: 180px; }
+        .project-image img { width: 100%; height: 180px; object-fit: cover; }
+        .project-content { padding: 20px; }
+        .project-category { font-size: 11px; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; font-weight: 600; }
+        .project-card h3 { font-size: 18px; margin-bottom: 8px; }
+        .project-card p { color: var(--gray); font-size: 13px; }
         
-        /* Footer */
-        .footer {
-            background: #060912;
-            padding: 80px 0 30px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr 1fr;
-            gap: 50px;
-        }
-        .footer-brand p { color: var(--gray); margin: 20px 0; }
-        .social-links { display: flex; gap: 12px; }
-        .social-link {
-            width: 45px;
-            height: 45px;
-            background: rgba(255,255,255,0.08);
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--light);
-            transition: all 0.3s;
-        }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .service-card { padding: 25px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; transition: all 0.3s; }
+        .service-card:hover { background: linear-gradient(135deg, rgba(249,115,22,0.1), transparent); border-color: rgba(249,115,22,0.3); }
+        .service-icon { width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary), transparent); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 20px; color: var(--primary); margin-bottom: 18px; }
+        .service-card h3 { font-size: 18px; margin-bottom: 10px; }
+        .service-card p { color: var(--gray); font-size: 13px; }
+        
+        .cta-section { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); padding: 80px 0; text-align: center; }
+        
+        .footer { background: #060912; padding: 60px 0 25px; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 35px; }
+        .footer-brand p { color: var(--gray); margin: 15px 0; font-size: 14px; }
+        .social-links { display: flex; gap: 10px; }
+        .social-link { width: 40px; height: 40px; background: rgba(255,255,255,0.08); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: var(--light); transition: all 0.3s; }
         .social-link:hover { background: var(--primary); transform: translateY(-3px); }
-        .footer-title { font-size: 18px; margin-bottom: 25px; color: var(--light); }
+        .footer-title { font-size: 16px; margin-bottom: 18px; color: var(--light); }
         .footer-links { list-style: none; }
-        .footer-links li { margin-bottom: 12px; }
-        .footer-links a { color: var(--gray); text-decoration: none; transition: 0.3s; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { color: var(--gray); text-decoration: none; font-size: 14px; transition: 0.3s; }
         .footer-links a:hover { color: var(--primary); }
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.05);
-            padding-top: 25px;
-            text-align: center;
-            color: var(--gray);
-            font-size: 14px;
-            font-family: 'Share Tech Mono', monospace;
-        }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; text-align: center; color: var(--gray); font-size: 13px; margin-top: 35px; }
         
         .fade-up { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
         .fade-up.visible { opacity: 1; transform: translateY(0); }
         
-        @media(max-width: 992px) { .footer-grid { grid-template-columns: 1fr 1fr; } .stats-grid { grid-template-columns: repeat(2,1fr); } }
+        @media(max-width: 992px) { .footer-grid { grid-template-columns: 1fr 1fr; } .hero-image { display: none; } .hero-content { max-width: 100%; } .stats-grid { grid-template-columns: repeat(2,1fr); } }
         @media(max-width: 768px) { .footer-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
@@ -331,14 +87,10 @@
     <header class="header" id="header">
         <div class="c">
             <div style="display:flex;justify-content:space-between;align-items:center;">
-                <a href="#" class="logo">
-                    <div class="logo-icon"><i class="fas fa-hard-hat"></i></div>
-                    <span class="orange-text">CIVIL</span>ENG
-                </a>
-                <nav style="display:flex;gap:30px;align-items:center;">
+                <a href="#" class="logo"><div class="logo-icon"><i class="fas fa-hard-hat"></i></div><span class="orange-text">CIVIL</span>ENG</a>
+                <nav style="display:flex;gap:25px;align-items:center;">
                     <a href="#proyectos" style="color:var(--light);text-decoration:none;font-size:14px;font-weight:500;">Proyectos</a>
-                    <a href="#servicios" style="color:var(--light);text-decoration:none;font-size:14px;font-weight:500;">Servicios</a>
-                    <a href="#contacto" class="btn btn-primary" style="padding:12px 24px;">Contacto</a>
+                    <a href="#contacto" class="btn btn-primary" style="padding:10px 22px;">Contacto</a>
                 </nav>
             </div>
         </div>
@@ -347,106 +99,58 @@
     <section class="hero grid-bg">
         <div class="c">
             <div class="hero-content">
-                <div class="hero-badge fade-up">
-                    <i class="fas fa-certificate"></i> CERTIFICACIÓN ISO 9001
-                </div>
+                <div class="hero-badge fade-up"><i class="fas fa-certificate"></i> ISO 9001</div>
                 <h1 class="fade-up">Construimos el<br><span class="orange-text">Futuro</span></h1>
                 <p class="fade-up">Proyectos de ingeniería civil de clase mundial.</p>
-                <div class="fade-up" style="display:flex;gap:20px;flex-wrap:wrap;">
+                <div class="fade-up" style="display:flex;gap:15px;flex-wrap:wrap;">
                     <a href="#contacto" class="btn btn-primary"><i class="fas fa-envelope"></i> Contactar</a>
-                    <a href="#proyectos" class="btn" style="border:1px solid rgba(255,255,255,0.3);color:var(--light);">Ver Proyectos</a>
+                    <a href="#proyectos" class="btn" style="border:1px solid rgba(255,255,255,0.3);color:var(--light);">Proyectos</a>
+                </div>
+                <div class="stats-grid fade-up">
+                    <div><div class="stat-number">250+</div><div class="stat-label">Proyectos</div></div>
+                    <div><div class="stat-number">20+</div><div class="stat-label">Años</div></div>
+                    <div><div class="stat-number">500+</div><div class="stat-label">Clientes</div></div>
+                    <div><div class="stat-number">98%</div><div class="stat-label">satisfacción</div></div>
                 </div>
             </div>
             <div class="hero-image fade-up">
-                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600" alt="Construction" style="width:100%;border-radius:20px;box-shadow:0 30px 60px rgba(0,0,0,0.4);">
-            </div>
-            <div class="fade-up" style="margin-top:60px;">
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-number">250+</div>
-                        <div class="stat-label">Proyectos</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">20+</div>
-                        <div class="stat-label">Años</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">500+</div>
-                        <div class="stat-label">Clientes</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">98%</div>
-                        <div class="stat-label">Satisfacción</div>
-                    </div>
-                </div>
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600" alt="Construction" style="width:100%;border-radius:12px;box-shadow:0 30px 60px rgba(0,0,0,0.4);">
             </div>
         </div>
     </section>
 
     <section class="sec" id="proyectos">
         <div class="c">
-            <div class="tc" style="margin-bottom:60px;">
-                <h2 class="fade-up" style="font-size:clamp(36px,5vw,52px);margin-bottom:15px;">Proyectos <span class="orange-text">Destacados</span></h2>
-                <p class="fade-up" style="color:var(--gray);font-size:17px;">Obras que definen el panorama urbano</p>
+            <div class="tc" style="margin-bottom:45px;">
+                <h2 class="section-title fade-up">Proyectos <span class="orange-text">Destacados</span></h2>
             </div>
             <div class="projects-grid">
                 <div class="project-card fade-up">
-                    <div class="project-image"><img src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=400" alt="Puente" style="width:100%;height:220px;object-fit:cover;"></div>
-                    <div class="project-content">
-                        <div class="project-category">Infraestructura</div>
-                        <h3>Puente Victoria</h3>
-                        <p>Puente vehicular de 500m con tecnología antisísmica de última generación.</p>
-                        <a href="#" class="project-link">Ver más <i class="fas fa-arrow-right"></i></a>
-                    </div>
+                    <div class="project-image"><img src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=400" alt="Puente"></div>
+                    <div class="project-content"><div class="project-category">Infraestructura</div><h3>Puente Victoria</h3><p>Puente vehicular de 500m.</p></div>
                 </div>
                 <div class="project-card fade-up" style="animation-delay:0.1s">
-                    <div class="project-image"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400" alt="Torre" style="width:100%;height:220px;object-fit:cover;"></div>
-                    <div class="project-content">
-                        <div class="project-category">Edificación</div>
-                        <h3>Torre Pacific</h3>
-                        <p>Edificio de 30 pisos con certificación LEED Gold.</p>
-                        <a href="#" class="project-link">Ver más <i class="fas fa-arrow-right"></i></a>
-                    </div>
+                    <div class="project-image"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400" alt="Torre"></div>
+                    <div class="project-content"><div class="project-category">Edificación</div><h3>Torre Pacific</h3><p>Edificio de 30 pisos.</p></div>
                 </div>
                 <div class="project-card fade-up" style="animation-delay:0.2s">
-                    <div class="project-image"><img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=400" alt="Autopista" style="width:100%;height:220px;object-fit:cover;"></div>
-                    <div class="project-content">
-                        <div class="project-category">Vialidad</div>
-                        <h3>Autopista Costa</h3>
-                        <p>Carretera de 4 carriles con puentes y túneles.</p>
-                        <a href="#" class="project-link">Ver más <i class="fas fa-arrow-right"></i></a>
-                    </div>
+                    <div class="project-image"><img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=400" alt="Autopista"></div>
+                    <div class="project-content"><div class="project-category">Vialidad</div><h3>Autopista Costa</h3><p>Carretera de 4 carriles.</p></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="sec" id="servicios">
+    <section class="sec" style="background:linear-gradient(180deg,rgba(249,115,22,0.05),transparent);">
         <div class="c">
-            <div class="tc" style="margin-bottom:60px;">
-                <h2 class="fade-up" style="font-size:42px;">Servicios de <span class="orange-text">Ingeniería</span></h2>
+            <div class="tc" style="margin-bottom:40px;">
+                <h2 class="fade-up section-title">Servicios de <span class="orange-text">Ingeniería</span></h2>
             </div>
             <div class="services-grid">
-                <div class="service-card fade-up">
-                    <div class="service-icon"><i class="fas fa-drafting-compass"></i></div>
-                    <h3>Diseño Estructural</h3>
-                    <p>Cálculos y diseño de estructuras para proyectos de cualquier escala.</p>
-                </div>
-                <div class="service-card fade-up" style="animation-delay:0.1s">
-                    <div class="service-icon"><i class="fas fa-building"></i></div>
-                    <h3>Construcción</h3>
-                    <p>Ejecución de obras civiles con los más altos estándares de calidad.</p>
-                </div>
-                <div class="service-card fade-up" style="animation-delay:0.2s">
-                    <div class="service-icon"><i class="fas fa-search"></i></div>
-                    <h3>Consultoría</h3>
-                    <p>Asesoría técnica y fiscalización de proyectos de terceros.</p>
-                </div>
-                <div class="service-card fade-up" style="animation-delay:0.3s">
-                    <div class="service-icon"><i class="fas fa-hard-hat"></i></div>
-                    <h3>Gerencia de Obras</h3>
-                    <p>Administración integral de proyectos desde diseño hasta entrega.</p>
-                </div>
+                <div class="service-card fade-up"><div class="service-icon"><i class="fas fa-drafting-compass"></i></div><h3>Diseño Estructural</h3><p>Cálculos y modelado de estructuras.</p></div>
+                <div class="service-card fade-up" style="animation-delay:0.1s"><div class="service-icon"><i class="fas fa-building"></i></div><h3>Construcción</h3><p>Ejecución de obras civiles.</p></div>
+                <div class="service-card fade-up" style="animation-delay:0.2s"><div class="service-icon"><i class="fas fa-search"></i></div><h3>Consultoría</h3><p>Asesoría técnica.</p></div>
+                <div class="service-card fade-up" style="animation-delay:0.3s"><div class="service-icon"><i class="fas fa-hard-hat"></i></div><h3>Gerencia de Obras</h3><p>Administración integral.</p></div>
             </div>
         </div>
     </section>
@@ -454,9 +158,9 @@
     <section class="cta-section" id="contacto">
         <div class="c">
             <div class="tc">
-                <h2 class="fade-up" style="font-size:48px;margin-bottom:20px;">¿Tienes un Proyecto?</h2>
-                <p class="fade-up" style="font-size:18px;opacity:0.9;margin-bottom:35px;">Hablemos sobre cómo construirlo juntos</p>
-                <a href="#" class="btn fade-up" style="background:white;color:var(--primary);"><i class="fas fa-envelope"></i> Contactar</a>
+                <h2 class="fade-up" style="font-size:40px;margin-bottom:15px;">¿Tienes un Proyecto?</h2>
+                <p class="fade-up" style="font-size:17px;opacity:0.9;margin-bottom:30px;">Hablemos sobre cómo construirlo juntos</p>
+                <a href="#" class="btn btn-primary fade-up" style="background:white;color:var(--primary);"><i class="fas fa-envelope"></i> Contactar</a>
             </div>
         </div>
     </section>
@@ -465,43 +169,17 @@
         <div class="c">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="#" class="logo" style="margin-bottom:15px;">
-                        <div class="logo-icon"><i class="fas fa-hard-hat"></i></div>
-                        <span class="orange-text">CIVIL</span>ENG
-                    </a>
-                    <p>Ingeniería civil de excelencia. Construimos obras que duran generaciones.</p>
+                    <a href="#" class="logo"><div class="logo-icon"><i class="fas fa-hard-hat"></i></div><span class="orange-text">CIVIL</span>ENG</a>
+                    <p>Ingeniería civil de excelencia.</p>
                     <div class="social-links">
                         <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
-                <div>
-                    <h4 class="footer-title">Servicios</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Diseño Estructural</a></li>
-                        <li><a href="#">Construcción</a></li>
-                        <li><a href="#">Consultoría</a></li>
-                        <li><a href="#">Gerencia</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="footer-title">Proyectos</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Infraestructura</a></li>
-                        <li><a href="#">Edificación</a></li>
-                        <li><a href="#">Vialidad</a></li>
-                        <li><a href="#">Industrial</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="footer-title">Contacto</h4>
-                    <ul class="footer-links">
-                        <li><i class="fas fa-map-marker-alt" style="margin-right:8px;"></i>Av. Industrial, Guayaquil</li>
-                        <li><i class="fas fa-phone" style="margin-right:8px;"></i>+593 99 999 9999</li>
-                        <li><i class="fas fa-envelope" style="margin-right:8px;"></i>hola@civileng.com</li>
-                    </ul>
-                </div>
+                <div><h4 class="footer-title">Servicios</h4><ul class="footer-links"><li><a href="#">Diseño</a></li><li><a href="#">Construcción</a></li><li><a href="#">Consultoría</a></li></ul></div>
+                <div><h4 class="footer-title">Proyectos</h4><ul class="footer-links"><li><a href="#">Infraestructura</a></li><li><a href="#">Edificación</a></li><li><a href="#">Vialidad</a></li></ul></div>
+                <div><h4 class="footer-title">Contacto</h4><ul class="footer-links"><li><i class="fas fa-map-marker-alt"></i> Guayaquil</li><li><i class="fas fa-phone"></i> +593 99 999 9999</li></ul></div>
             </div>
             <div class="footer-bottom">© 2026 CIVILENG. Todos los derechos reservados.</div>
         </div>
@@ -510,10 +188,8 @@
     <script>
         const header = document.getElementById('header');
         window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 50));
-
         const observer = new IntersectionObserver((e) => e.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1 });
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
         gsap.registerPlugin(ScrollTrigger);
         gsap.from('.hero-content > *', { duration: 1, y: 40, opacity: 0, stagger: 0.15, ease: 'power3.out' });
     </script>
