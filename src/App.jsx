@@ -1,4 +1,24 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+
+// Add scroll animations on mount
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fadeUp')
+        }
+      })
+    },
+    { threshold: 0.1 }
+  )
+  
+  document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+    observer.observe(el)
+  })
+  
+  return () => observer.disconnect()
+}, [])
 
 // Services data
 const services = [
@@ -105,10 +125,10 @@ function App() {
         
         <div className="relative max-w-7xl mx-auto px-6 py-24 lg:py-32">
           <div className="max-w-3xl">
-            <span className="inline-block px-4 py-2 bg-orange-500 text-sm font-semibold rounded-full mb-6">
+            <span className="inline-block px-4 py-2 bg-orange-500 text-sm font-semibold rounded-full mb-6 animate-on-scroll">
               Ingeniería Civil de Precisión
             </span>
-            <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight animate-on-scroll">
               Soluciones de Ingeniería Civil Estructural para Proyectos Comerciales
             </h1>
             <p className="text-xl lg:text-2xl text-slate-300 mb-8">
@@ -150,7 +170,7 @@ function App() {
       {/* Services Section */}
       <section id="servicios" className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 animate-on-scroll">
             <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">NUESTROS SERVICIOS</span>
             <h2 className="text-4xl font-bold text-slate-800 mt-2">Expertos en Ingeniería Civil</h2>
             <p className="text-slate-600 mt-4 max-w-2xl mx-auto">
@@ -238,7 +258,7 @@ function App() {
       {/* Portfolio Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 animate-on-scroll">
             <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">PORTAFOLIO</span>
             <h2 className="text-4xl font-bold text-slate-800 mt-2">Proyectos Destacados</h2>
             <p className="text-slate-600 mt-4 max-w-2xl mx-auto">
