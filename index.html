@@ -136,7 +136,9 @@
                 radial-gradient(circle at 20% 80%, rgba(249,115,22,0.15) 0%, transparent 40%),
                 radial-gradient(circle at 80% 20%, rgba(251,191,36,0.1) 0%, transparent 40%);
         }
-        .hero-content { position: relative; z-index: 2; max-width: 700px; }
+        .hero-content { position: relative; z-index: 2; max-width: 500px; }
+        .hero-image { position: absolute; right: 5%; top: 50%; transform: translateY(-50%); width: 45%; max-width: 500px; z-index: 2; }
+        @media(max-width: 992px) { .hero-image { display: none; } }
         .hero-badge {
             display: inline-flex;
             align-items: center;
@@ -349,11 +351,14 @@
                     <i class="fas fa-certificate"></i> CERTIFICACIÓN ISO 9001
                 </div>
                 <h1 class="fade-up">Construimos el<br><span class="orange-text">Futuro</span></h1>
-                <p class="fade-up">Proyectos de ingeniería civil de clase mundial. Compromiso, calidad y innovación en cada estructura.</p>
+                <p class="fade-up">Proyectos de ingeniería civil de clase mundial.</p>
                 <div class="fade-up" style="display:flex;gap:20px;flex-wrap:wrap;">
                     <a href="#contacto" class="btn btn-primary"><i class="fas fa-envelope"></i> Contactar</a>
                     <a href="#proyectos" class="btn" style="border:1px solid rgba(255,255,255,0.3);color:var(--light);">Ver Proyectos</a>
                 </div>
+            </div>
+            <div class="hero-image fade-up">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600" alt="Construction" style="width:100%;border-radius:20px;box-shadow:0 30px 60px rgba(0,0,0,0.4);">
             </div>
             <div class="fade-up" style="margin-top:60px;">
                 <div class="stats-grid">
@@ -386,7 +391,7 @@
             </div>
             <div class="projects-grid">
                 <div class="project-card fade-up">
-                    <div class="project-image">🏗️</div>
+                    <div class="project-image"><img src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=400" alt="Puente" style="width:100%;height:220px;object-fit:cover;"></div>
                     <div class="project-content">
                         <div class="project-category">Infraestructura</div>
                         <h3>Puente Victoria</h3>
@@ -395,20 +400,20 @@
                     </div>
                 </div>
                 <div class="project-card fade-up" style="animation-delay:0.1s">
-                    <div class="project-image">🏢</div>
+                    <div class="project-image"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400" alt="Torre" style="width:100%;height:220px;object-fit:cover;"></div>
                     <div class="project-content">
                         <div class="project-category">Edificación</div>
                         <h3>Torre Pacific</h3>
-                        <p>Edificio de 30 pisos con certificación LEED Gold en zona financiera.</p>
+                        <p>Edificio de 30 pisos con certificación LEED Gold.</p>
                         <a href="#" class="project-link">Ver más <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="project-card fade-up" style="animation-delay:0.2s">
-                    <div class="project-image">🛣️</div>
+                    <div class="project-image"><img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=400" alt="Autopista" style="width:100%;height:220px;object-fit:cover;"></div>
                     <div class="project-content">
                         <div class="project-category">Vialidad</div>
                         <h3>Autopista Costa</h3>
-                        <p>Carretera de 4 carriles con puentes y túneles en zona costera.</p>
+                        <p>Carretera de 4 carriles con puentes y túneles.</p>
                         <a href="#" class="project-link">Ver más <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
