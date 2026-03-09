@@ -1,4 +1,9 @@
 import { useState, useEffect } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+// Register GSAP plugin
+gsap.registerPlugin(ScrollTrigger)
 
 // Add scroll animations on mount
 useEffect(() => {
