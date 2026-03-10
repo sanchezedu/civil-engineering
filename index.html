@@ -3,7 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ingeniería Civil - Proyectos de Excelencia</title>
+    <title>Ingeniería Civil - Proyectos de Excelencia | CIVILENG</title>
+    <meta name="description" content="CIVILENG - Empresa de ingeniería civil en Guayaquil. Diseño estructural, construcción, consultoría y gerencia de obras. +250 proyectos completados. ¡Contáctanos!">
+    <meta name="keywords" content="ingeniería civil, construcción, diseño estructural, consultoría, Guayaquil, Ecuador, obras civiles, gerencia de obras">
+    <meta name="author" content="CIVILENG">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="CIVILENG - Ingeniería Civil de Excelencia">
+    <meta property="og:description" content="Proyectos de ingeniería civil de clase mundial. Diseño, construcción y consultoría.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://civil-engineering-gray.vercel.app">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200">
+    <meta property="og:site_name" content="CIVILENG">
+    <meta property="og:locale" content="es_EC">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CIVILENG - Ingeniería Civil">
+    <meta name="twitter:description" content="Construimos el futuro. Proyectos de ingeniería civil de clase mundial.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200">
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "CIVILENG",
+        "description": "Ingeniería civil de excelencia",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Guayaquil",
+            "addressCountry": "EC"
+        },
+        "telephone": "+593999999999",
+        "priceRange": "$$$",
+        "openingHours": "Mo-Fr 08:00-18:00",
+        "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200"
+    }
+    </script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Oxanium:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -67,6 +106,25 @@
             .hero-image { display: none; }
             .stats { grid-template-columns: repeat(2,1fr); }
         }
+        
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #25D366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
+        .whatsapp-float i { color: white; font-size: 28px; }
     </style>
 </head>
 <body>
@@ -94,7 +152,7 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600" alt="Construction">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600" alt="Construction">
             </div>
         </div>
     </section>
@@ -105,7 +163,7 @@
             <p>Algunas de nuestras obras más importantes</p>
             <div class="projects-grid">
                 <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=400" alt="Puente">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=400" alt="Puente">
                     <div class="project-content">
                         <div class="project-category">Infraestructura</div>
                         <h3>Puente Victoria</h3>
@@ -113,7 +171,7 @@
                     </div>
                 </div>
                 <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400" alt="Torre">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400" alt="Torre">
                     <div class="project-content">
                         <div class="project-category">Edificación</div>
                         <h3>Torre Pacific</h3>
@@ -121,7 +179,7 @@
                     </div>
                 </div>
                 <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=400" alt="Autopista">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=400" alt="Autopista">
                     <div class="project-content">
                         <div class="project-category">Vialidad</div>
                         <h3>Autopista Costa</h3>
@@ -201,5 +259,10 @@
             <div class="footer-bottom">© 2026 CIVILENG. Todos los derechos reservados.</div>
         </div>
     </footer>
+    
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/593999999999" target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 </body>
 </html>

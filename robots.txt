@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://civil-engineering-gray.vercel.app/sitemap.xml
